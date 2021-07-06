@@ -17,6 +17,7 @@ const getAll = async (req, res) => {
 		let data = await BuyerProducts.findAll({
 			where: { status: 'AKTIF' }
 		})
+
 		return ApiResponse.ok(res, 'Get all success', data)
 	} catch (err) {
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
