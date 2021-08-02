@@ -1,13 +1,17 @@
 import Sequelize from "sequelize"
 import conn from "../../config/datasource"
 
-const Catalog = conn.define('buyer_product', {
+const BuyerProduct = conn.define('buyer_product', {
     id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
     user_id: { type: Sequelize.INTEGER, allowNull: false },
     product_id: { type: Sequelize.INTEGER, allowNull: false },
+    background1: { type: Sequelize.TEXT, allowNull: true },
+    background2: { type: Sequelize.TEXT, allowNull: true },
     bride_couple_img: { type: Sequelize.TEXT, allowNull: true },
     bridegroom_full_name: { type: Sequelize.TEXT, allowNull: true },
     bride_full_name: { type: Sequelize.TEXT, allowNull: true },
+    bridegroom_img: { type: Sequelize.TEXT, allowNull: true },
+    bride_img: { type: Sequelize.TEXT, allowNull: true },
     bridegroom_call_name: { type: Sequelize.TEXT, allowNull: true },
     bride_call_name: { type: Sequelize.TEXT, allowNull: true },
     bridegroom_mother: { type: Sequelize.TEXT, allowNull: true },
@@ -38,10 +42,10 @@ const Catalog = conn.define('buyer_product', {
     created_at: { type: Sequelize.TEXT, allowNull: true },
     updated_at: { type: Sequelize.TEXT, allowNull: true },
     status: {
-        type: Sequelize.STRING(50), allowNull: false
+        type: Sequelize.STRING(50), allowNull: true
     },
 
 }, { timestamps: false, freezeTableName: true })
 
 
-export default Catalog
+export default BuyerProduct

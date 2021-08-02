@@ -1,11 +1,11 @@
 import express from "express"
-import { add, getAll, getByID, update, deleted, getByUserName } from "./buyerProductRoutes.controller"
+import { add, getAll, getByID, update, deleted, getAllByBuyerProductId } from "./invitationCategories.controller"
 
 const router = express.Router()
 
 router.post('/', add)
 router.get('/', getAll)
-router.get('/:bridegroom_call_name/:bride_call_name', getByUserName)
+router.get('/getAllByBuyerProductId/:id', getAllByBuyerProductId)
 router.get('/:id', getByID)
 router.put('/:id', update)
 router.delete('/:id', deleted)
