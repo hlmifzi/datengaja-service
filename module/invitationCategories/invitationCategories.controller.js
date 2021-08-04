@@ -1,4 +1,4 @@
-import { InvitationCategories } from "../../model/index"
+import { InvitationCategories, Invitations } from "../../model/index"
 import ApiResponse from "../../utils/apiResponse"
 import sequelize from "../../config/datasource"
 
@@ -28,6 +28,21 @@ const getAllByBuyerProductId = async (req, res) => {
 		let data = await InvitationCategories.findAll({
 			where: { buyerProductId: req.params.id, status: 'AKTIF' }
 		})
+
+		return ApiResponse.ok(res, 'Get all success', data)
+	} catch (err) {
+		return ApiResponse.internalServerError(res, 'Internal server error', err)
+	}
+}
+
+const getAllByBuyerProductIdQty = async (req, res) => {
+	try {
+		let data = await sequelize.query(
+			'SELECT  B.desc, count(a.id) as jumlah FROM invitations A LEFT JOIN invitation_categories B ON A.invitation_category_id = B.id  WHERE A.buyerProductId= ' + req.params.id + ' AND A.status="AKTIF" GROUP BY B.desc',
+			{
+				model: Invitations,
+				raw: true,
+			})
 
 		return ApiResponse.ok(res, 'Get all success', data)
 	} catch (err) {
@@ -71,4 +86,4 @@ const deleted = async (req, res) => {
 }
 
 
-export { add, getAll, getByID, update, deleted, getAllByBuyerProductId }
+export { add, getAll, getByID, update, deleted, getAllByBuyerProductId, getAllByBuyerProductIdQty }
