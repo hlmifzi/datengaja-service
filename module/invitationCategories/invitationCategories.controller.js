@@ -15,7 +15,10 @@ const add = async (req, res) => {
 const getAll = async (req, res) => {
 	try {
 		let data = await InvitationCategories.findAll({
-			where: { status: 'AKTIF' }
+			where: { status: 'AKTIF' },
+			order: [
+				['updated_at', 'DESC'],
+			],
 		})
 		return ApiResponse.ok(res, 'Get all success', data)
 	} catch (err) {
