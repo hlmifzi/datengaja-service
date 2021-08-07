@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs"
+import sequelize from "../../config/datasource"
 
 import { User, Place, Role } from "../../model/index"
 import ApiResponse from "../../utils/apiResponse"
@@ -14,12 +14,20 @@ const addUser = async (req, res) => {
 
 const getAllUser = async (req, res) => {
 	try {
-		let data = await User.findAll({
-			where: { status: 'AKTIF' },
-			attributes: [['id', 'key'], 'email', 'phone', 'password']
-		})
+		const { email, password } = req.query
+
+		let condition = ""
+		if (email && password) condition = ` AND A.email = "${email}" AND A.password = "${password}"`
+		let data = await sequelize.query(
+			'SELECT A.*, B.bridegroom_call_name, B.bride_call_name, B.id as buyerProductId FROM users A LEFT JOIN buyer_product B ON A.id = B.user_id WHERE A.status="AKTIF"' + condition,
+			{
+				model: User,
+				raw: true,
+			})
+
 		return ApiResponse.ok(res, 'Get all user success', data)
 	} catch (err) {
+		console.log("🚀 ~ file: user.controller.js ~ line 37 ~ getAllUser ~ err", err)
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }

@@ -25,8 +25,13 @@ const getAll = async (req, res) => {
 
 const getAllByBuyerProductId = async (req, res) => {
 	try {
+		const { category_id, invitation_name } = req.query
+		let condition = ""
+		if (category_id) condition += ` AND B.id = ${category_id}`
+		if (invitation_name) condition += ` AND A.fullname = '${invitation_name}'`
+
 		let data = await sequelize.query(
-			'SELECT A.*, B.desc FROM invitations A LEFT JOIN invitation_categories B ON A.invitation_category_id = B.id  WHERE A.buyerProductId= ' + req.params.id + ' AND A.status="AKTIF"',
+			'SELECT A.*, B.desc, B.time_start, B.time_end FROM invitations A LEFT JOIN invitation_categories B ON A.invitation_category_id = B.id  WHERE A.buyerProductId= ' + req.params.id + ' AND A.status="AKTIF"' + condition,
 			{
 				model: Invitations,
 				raw: true,
