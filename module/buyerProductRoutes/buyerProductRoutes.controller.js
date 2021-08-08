@@ -76,6 +76,7 @@ const update = async (req, res) => {
 			})
 		return ApiResponse.ok(res, 'Updated success', data)
 	} catch (err) {
+		console.log("🚀 ~ file: buyerProductRoutes.controller.js ~ line 79 ~ update ~ err", err)
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }

@@ -7,7 +7,9 @@ import errorhandler from "./middleware/errorhandler"
 const app = express()
 require('./model')
 
-app.use(bodyParser.json())
+app.use(bodyParser.json({
+    limit: "50mb"
+}))
 app.use(cors)
 app.use(routes)
 
