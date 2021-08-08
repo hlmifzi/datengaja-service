@@ -27,7 +27,6 @@ const getAllUser = async (req, res) => {
 
 		return ApiResponse.ok(res, 'Get all user success', data)
 	} catch (err) {
-		console.log("🚀 ~ file: user.controller.js ~ line 37 ~ getAllUser ~ err", err)
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }
