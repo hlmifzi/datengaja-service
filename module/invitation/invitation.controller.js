@@ -25,9 +25,10 @@ const getAll = async (req, res) => {
 
 const getAllByBuyerProductId = async (req, res) => {
 	try {
-		const { category_id, invitation_name } = req.query
+		const { category_id, invitation_name, attend_status } = req.query
 		let condition = ""
 		if (category_id) condition += ` AND B.id = ${category_id}`
+		if (attend_status) condition += ` AND A.attend_status = '${attend_status}'`
 		if (invitation_name) condition += ` AND A.fullname = '${invitation_name}'`
 
 		let data = await sequelize.query(

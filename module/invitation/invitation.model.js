@@ -10,7 +10,7 @@ const Invitations = conn.define('invitations', {
     attend_qty: { type: Sequelize.INTEGER, allowNull: true },
     greetings: { type: Sequelize.TEXT, allowNull: true },
     attend_status: { type: Sequelize.TEXT, allowNull: false },
-    present_time: { type: Sequelize.TIME, allowNull: false },
+    present_time: { type: Sequelize.TIME, allowNull: true },
     status: {
         type: Sequelize.STRING(50), allowNull: false, allowNull: true
     },
