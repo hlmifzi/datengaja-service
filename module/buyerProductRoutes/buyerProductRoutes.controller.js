@@ -11,6 +11,13 @@ const add = async (req, res) => {
 
 		let data = await BuyerProducts.create({
 			...req.body,
+			"background1": "/img/2.jpeg",
+			"background2": "/img/6.jpeg",
+			"bride_couple_img": "/img/1.jpeg",
+			"bridegroom_img": "/img/3.jpeg",
+			"bride_img": "/img/4.jpeg",
+			"gallery": "/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg",
+			"rekening_qr_img": "/img/qrcode.jpeg",
 			"user_id": creatUser.id,
 			"product_id": 1
 		})
