@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 05:15 PM
+-- Generation Time: Aug 17, 2021 at 05:42 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -54,17 +54,17 @@ CREATE TABLE `buyer_product` (
   `reception_location` varchar(255) NOT NULL,
   `reception_location_google_maps` longtext NOT NULL,
   `gallery` longtext NOT NULL,
-  `live_streaming_zoom` varchar(100) NOT NULL,
-  `live_streaming_zoom_meeting_id` varchar(100) NOT NULL,
-  `live_streaming_zoom_password` varchar(100) NOT NULL,
+  `live_streaming_zoom` varchar(100) DEFAULT NULL,
+  `live_streaming_zoom_meeting_id` varchar(100) DEFAULT NULL,
+  `live_streaming_zoom_password` varchar(100) DEFAULT NULL,
   `live_streaming_ig` varchar(50) DEFAULT NULL,
-  `live_streaming_ig_account` varchar(100) NOT NULL,
-  `handphone_wa` varchar(20) NOT NULL,
-  `rekening_qr_img` longtext NOT NULL,
-  `rekening` varchar(50) NOT NULL,
-  `is_publish` varchar(20) NOT NULL,
-  `expired_at` datetime NOT NULL,
-  `status_paid` varchar(50) NOT NULL,
+  `live_streaming_ig_account` varchar(100) DEFAULT NULL,
+  `handphone_wa` varchar(20) DEFAULT NULL,
+  `rekening_qr_img` longtext DEFAULT NULL,
+  `rekening` varchar(50) DEFAULT NULL,
+  `is_publish` varchar(20) DEFAULT NULL,
+  `expired_at` datetime DEFAULT NULL,
+  `status_paid` varchar(50) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` char(20) NOT NULL DEFAULT 'AKTIF'
@@ -87,7 +87,10 @@ INSERT INTO `buyer_product` (`id`, `user_id`, `background1`, `background2`, `pro
 (33, 35, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'helmi fauzi', 'helmi', '/img/3.jpeg', '/img/4.jpeg', 'putri', 'tes', 'asd', 'tes', 'tes', '2021-08-10', '21:41:00', '23:40:00', 'asd', '2021-08-04', '22:40:00', '00:40:00', 'adsad', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 14:41:04', '2021-08-17 14:41:04', 'AKTIF'),
 (34, 36, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'Hlmifzi', 'helmi', '/img/3.jpeg', '/img/4.jpeg', 'putri', 'tes', 'tes', 'asd', 'asd', '2021-08-11', '22:50:00', '00:50:00', 'tes', '2021-08-16', '23:50:00', '23:50:00', 'asd', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 14:50:21', '2021-08-17 14:50:21', 'AKTIF'),
 (35, 37, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'HELMI FAUZI', 'Hlmifzi', 'helmi coba 2', '/img/3.jpeg', '/img/4.jpeg', 'jannah', 'ASDASD', 'ASD', 'asd', 'ASDASD', '2021-08-12', '21:56:00', '23:55:00', 'asd', '2021-08-11', '21:57:00', '00:55:00', 'asd', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 14:55:54', '2021-08-17 14:55:54', 'AKTIF'),
-(36, 38, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'Hlmifzi', 'helmi', '/img/3.jpeg', '/img/4.jpeg', 'putri', 'asd', 'tes', 'tes', 'halim', '2021-09-01', '02:57:00', '01:57:00', 'asd', '2021-08-05', '21:58:00', '00:58:00', 'asd', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 14:58:09', '2021-08-17 14:58:09', 'AKTIF');
+(36, 38, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'Hlmifzi', 'helmi', '/img/3.jpeg', '/img/4.jpeg', 'putri', 'asd', 'tes', 'tes', 'halim', '2021-09-01', '02:57:00', '01:57:00', 'asd', '2021-08-05', '21:58:00', '00:58:00', 'asd', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 14:58:09', '2021-08-17 14:58:09', 'AKTIF'),
+(37, 40, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'siti nurjannah', 'helmicoba1', '/img/3.jpeg', '/img/4.jpeg', 'jannahcoba1', 'asd', 'tes', 'sd', 'nama ayah fulin', '2021-09-01', '22:26:00', '02:22:00', 'jakarta', '2021-08-27', '23:22:00', '23:23:00', 'jakarta', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 15:23:03', '2021-08-17 15:23:03', 'AKTIF'),
+(38, 41, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'Hlmifzi', 'ozi', '/img/3.jpeg', '/img/4.jpeg', 'ads', 'tes nama ibu fulan', 'tes ayah fulan pria', '', 'abdul halim', '2021-08-03', '22:34:00', '00:33:00', 'JAKARTA', '2021-08-02', '01:33:00', '00:33:00', 'ASDAD', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 15:33:45', '2021-08-17 15:33:45', 'AKTIF'),
+(39, 42, '/img/2.jpeg', '/img/6.jpeg', 1, '/img/1.jpeg', 'helmi fauzi', 'Hlmifzi', 'ozi', '/img/3.jpeg', '/img/4.jpeg', 'ads', 'tes nama ibu fulan', 'tes ayah fulan pria', '', 'abdul halim', '2021-08-03', '22:34:00', '00:33:00', 'JAKARTA', '2021-08-02', '01:33:00', '00:33:00', 'ASDAD', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg', '', '', '', NULL, '', '', '/img/qrcode.jpeg', '', '', '0000-00-00 00:00:00', '', '2021-08-17 15:35:47', '2021-08-17 15:35:47', 'AKTIF');
 
 -- --------------------------------------------------------
 
@@ -234,7 +237,10 @@ INSERT INTO `users` (`id`, `email`, `phone`, `password`, `type`, `status`, `crea
 (36, 'hlmifzicoba1@gmail.com', '088210587976', 'SMKN26Pembangunan', 'BUYER', 'AKTIF', '2021-08-17 14:50:21.579678', '0000-00-00 00:00:00.000000'),
 (37, 'hlmifzi@gmail.com', '088210587976', 'asd', 'BUYER', 'AKTIF', '2021-08-17 14:55:54.094540', '0000-00-00 00:00:00.000000'),
 (38, 'hlmifzi@gmail.com', '088210587976', 'asd', 'BUYER', 'AKTIF', '2021-08-17 14:58:09.918903', '0000-00-00 00:00:00.000000'),
-(39, 'hlmifzi@gmail.com', '080', '123', 'BUYER', 'AKTIF', '2021-08-17 15:09:15.579244', '0000-00-00 00:00:00.000000');
+(39, 'hlmifzi@gmail.com', '080', '123', 'BUYER', 'AKTIF', '2021-08-17 15:09:15.579244', '0000-00-00 00:00:00.000000'),
+(40, 'hlmifzicoba1@gmail.com', '088210587976', 'coba', 'BUYER', 'AKTIF', '2021-08-17 15:23:03.959892', NULL),
+(41, 'hlmifzi@gmail.com', '088210587976', 'smkn26p', 'BUYER', 'AKTIF', '2021-08-17 15:33:45.368326', NULL),
+(42, 'hlmifzi@gmail.com', '088210587976', 'smkn26p', 'BUYER', 'AKTIF', '2021-08-17 15:35:47.839926', NULL);
 
 --
 -- Indexes for dumped tables
@@ -278,7 +284,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `buyer_product`
 --
 ALTER TABLE `buyer_product`
-  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `invitations`
@@ -302,7 +308,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
