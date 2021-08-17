@@ -19,6 +19,7 @@ const add = async (req, res) => {
 			"gallery": "/img/2.jpeg|/img/7.jpeg|/img/5.jpeg|/img/6.jpeg",
 			"rekening_qr_img": "/img/qrcode.jpeg",
 			"user_id": creatUser.id,
+			"reception_location_google_maps": '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4408681594346!2d106.88866431410297!3d-6.205430862513204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4a2d70819c1%3A0x34c8dff84ebb630e!2sGg.%20Anyelir%2C%20RT.5%2FRW.2%2C%20Cipinang%2C%20Kec.%20Pulo%20Gadung%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013240!5e0!3m2!1sen!2sid!4v1623944384045!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
 			"product_id": 1
 		})
 
