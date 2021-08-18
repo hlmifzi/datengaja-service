@@ -9,7 +9,9 @@ const settings = {
 		max: 5,
 		iddle: 10000
 	},
-	logging: false
+	logging: function (str) {
+		console.log(str)
+	}
 }
 
 const conn = new Sequelize('datengajaid', 'root', '', settings)
