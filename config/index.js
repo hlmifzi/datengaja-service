@@ -1,5 +1,5 @@
 export default {
-    port: 80,
+    port: 443,
     secretKey: 'sAw3d@Qqqq',
     payLoad: {
         iss: 'http://localhost/',
