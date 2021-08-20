@@ -23,11 +23,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validation": "^1.0.3",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^1.7.0",
     "nodemon": "^1.19.4",
     "npm": "^6.14.13",
+    "path": "^0.12.7",
     "sequelize": "^5.22.4"
   },
   "devDependencies": {
