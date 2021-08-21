@@ -7,7 +7,7 @@ const addUser = async (req, res) => {
 	try {
 
 		let emailMember = await sequelize.query(
-			`SELECT * FROM users WHERE status="AKTIF" AND A.email = "${req.boyemail}"`,
+			`SELECT * FROM users WHERE status="AKTIF" AND email = "${req.boyemail}"`,
 			{
 				model: User,
 				raw: true,
@@ -28,7 +28,7 @@ const getAllUser = async (req, res) => {
 		const { email, password } = req.query
 
 		let emailMember = await sequelize.query(
-			`SELECT * FROM users WHERE status="AKTIF" AND A.email = "${email}"`,
+			`SELECT * FROM users WHERE status="AKTIF" AND email = "${email}"`,
 			{
 				model: User,
 				raw: true,
