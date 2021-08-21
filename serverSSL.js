@@ -19,4 +19,4 @@ const sslServer = https.createServer({
 
 
 
-sslServer.listen(config.port, () => console.log(`secure server on ${config.port}`))
+sslServer.listen(443, () => console.log(`secure server on ${config.port}`))
