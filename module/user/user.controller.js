@@ -5,6 +5,17 @@ import ApiResponse from "../../utils/apiResponse"
 
 const addUser = async (req, res) => {
 	try {
+
+		let emailMember = await sequelize.query(
+			`SELECT * FROM users WHERE status="AKTIF" AND A.email = "${req.boyemail}"`,
+			{
+				model: User,
+				raw: true,
+			})
+
+		if (emailMember.length > 1) return ApiResponse.unAuthorized(res, `Email ${email} telak terdaftar`, emailMember)
+
+
 		let data = await User.create(req.body)
 		return ApiResponse.created(res, 'Add user success', data)
 	} catch (err) {
@@ -15,6 +26,15 @@ const addUser = async (req, res) => {
 const getAllUser = async (req, res) => {
 	try {
 		const { email, password } = req.query
+
+		let emailMember = await sequelize.query(
+			`SELECT * FROM users WHERE status="AKTIF" AND A.email = "${email}"`,
+			{
+				model: User,
+				raw: true,
+			})
+
+		if (emailMember.length < 1) return ApiResponse.unAuthorized(res, `Email ${email} Belum terdaftar`, emailMember)
 
 		let condition = ""
 		if (email && password) condition = ` AND A.email = "${email}" AND A.password = "${password}"`
@@ -41,6 +61,7 @@ const getUserByID = async (req, res) => {
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }
+
 
 const updateUser = async (req, res) => {
 	try {
