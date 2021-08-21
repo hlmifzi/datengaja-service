@@ -34,7 +34,7 @@ const getAllUser = async (req, res) => {
 				raw: true,
 			})
 
-		if (emailMember.length < 1) return ApiResponse.unAuthorized(res, `Email ${email} Belum terdaftar`, emailMember)
+		if (emailMember.length < 1) return ApiResponse.unAuthorized(res, `Email ${email} Belum terdaftar, Silakan membuat undanganmu`, emailMember)
 
 		let condition = ""
 		if (email && password) condition = ` AND A.email = "${email}" AND A.password = "${password}"`
