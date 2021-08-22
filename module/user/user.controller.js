@@ -65,7 +65,15 @@ const getUserByID = async (req, res) => {
 
 const updateUser = async (req, res) => {
 	try {
-		let data = await User.update(req.body, { where: { id: req.params.id } })
+		let emailMember = await sequelize.query(
+			`SELECT * FROM users WHERE status="AKTIF" AND email = "${req.body.email}"`,
+			{
+				model: User,
+				raw: true,
+			})
+
+		if (emailMember.length < 1) return ApiResponse.unAuthorized(res, `Email ${req.body.email} Belum terdaftar, Silakan membuat undanganmu`, emailMember)
+		let data = await User.update(req.body, { where: { email: req.body.email } })
 		return ApiResponse.ok(res, 'Updated user success', data)
 	} catch (err) {
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
