@@ -7,13 +7,13 @@ const addUser = async (req, res) => {
 	try {
 
 		let emailMember = await sequelize.query(
-			`SELECT * FROM users WHERE status="AKTIF" AND email = "${req.boyemail}"`,
+			`SELECT * FROM users WHERE status="AKTIF" AND email = "${req.body.email}"`,
 			{
 				model: User,
 				raw: true,
 			})
 
-		if (emailMember.length > 1) return ApiResponse.unAuthorized(res, `Email ${email} telak terdaftar`, emailMember)
+		if (emailMember.length > 1) return ApiResponse.unAuthorized(res, `Email ${req.body.email} telah terdaftar`, emailMember)
 
 
 		let data = await User.create(req.body)
