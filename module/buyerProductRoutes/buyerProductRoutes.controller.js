@@ -60,15 +60,17 @@ const getAll = async (req, res) => {
 
 const getByUserName = async (req, res) => {
 	try {
-		let data = await BuyerProducts.findOne({
-			where: {
-				bridegroom_call_name: req.params.bridegroom_call_name,
-				bride_call_name: req.params.bride_call_name,
-				status: 'AKTIF'
-			}
-		})
-		return ApiResponse.ok(res, 'Get all success', data)
+		const condition = `AND A.bridegroom_call_name="${req.params.bridegroom_call_name}" AND A.bride_call_name="${req.params.bride_call_name}"`
+
+		let data = await sequelize.query(
+			'SELECT A.*, B.phone FROM buyer_product A JOIN users B on A.user_id = B.id WHERE A.status="AKTIF" ' + condition,
+			{
+				model: BuyerProducts,
+				raw: false,
+			})
+		return ApiResponse.ok(res, 'Get all success', data[0])
 	} catch (err) {
+		console.log(err)
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }
