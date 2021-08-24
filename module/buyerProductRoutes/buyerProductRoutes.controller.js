@@ -70,7 +70,6 @@ const getByUserName = async (req, res) => {
 			})
 		return ApiResponse.ok(res, 'Get all success', data[0])
 	} catch (err) {
-		console.log(err)
 		return ApiResponse.internalServerError(res, 'Internal server error', err)
 	}
 }
