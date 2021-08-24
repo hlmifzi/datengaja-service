@@ -12,7 +12,7 @@ const add = async (req, res) => {
 				raw: true,
 			})
 
-		if (emailMember.length > 1) return ApiResponse.unAuthorized(res, `Email ${req.body.email} telah terdaftar, Silahkan Masuk`, emailMember)
+		if (emailMember.length >= 1) return ApiResponse.unAuthorized(res, `Email ${req.body.email} telah terdaftar, Silahkan Masuk`, emailMember)
 
 
 		let creatUser = await User.create({
