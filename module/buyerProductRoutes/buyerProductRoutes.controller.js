@@ -12,7 +12,7 @@ const add = async (req, res) => {
 				raw: true,
 			})
 
-		if (emailMember.length >= 1) return ApiResponse.unAuthorized(res, `Email ${req.body.email} telah terdaftar, Silahkan Masuk`, emailMember)
+		if (emailMember.length !== 0) return ApiResponse.unAuthorized(res, `Email ${req.body.email} telah terdaftar, Silahkan Masuk`, emailMember)
 
 
 		let creatUser = await User.create({
@@ -44,9 +44,9 @@ const getAll = async (req, res) => {
 	try {
 		const { start, end } = req.query
 		let period = ""
-		if (start && end) period = `AND created_at BETWEEN "${start}" AND "${end}"`
+		if (start && end) period = `AND A.reception_date BETWEEN "${start}" AND "${end}"`
 		let data = await sequelize.query(
-			'SELECT * FROM buyer_product WHERE status="AKTIF" ' + period,
+			'SELECT A.*, B.* FROM buyer_product A JOIN users B on A.user_id = B.id WHERE B.status="AKTIF" ' + period,
 			{
 				model: BuyerProducts,
 				raw: true,
