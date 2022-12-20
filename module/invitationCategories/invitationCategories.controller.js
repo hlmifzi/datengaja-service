@@ -29,7 +29,10 @@ const getAll = async (req, res) => {
 const getAllByBuyerProductId = async (req, res) => {
 	try {
 		let data = await InvitationCategories.findAll({
-			where: { buyerProductId: req.params.id, status: 'AKTIF' }
+			where: { buyerProductId: req.params.id, status: 'AKTIF' },
+			order: [
+				['desc', 'ASC'],
+			],
 		})
 
 		return ApiResponse.ok(res, 'Get all success', data)
